@@ -1,21 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import CountryCard from "../components/CountryCard";
-import { Country } from "../api/types";
+import CountryCard from '../components/CountryCard';
+import { Country } from '../api/types';
+import fetchCountries from '../api/fetchCountries';
 
-const ALL_COUNTRIES_ENDPOINT = "https://restcountries.eu/rest/v2/all";
-
-const fetchCountryApiData = async (setter: Function) => {
-  const response = await fetch(ALL_COUNTRIES_ENDPOINT);
-  const countries = await response.json();
-  setter(countries);
-  console.log(countries);
-};
-
-const Countries = () => {
+const Countries = (): JSX.Element => {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
+    const fetchCountryApiData = async (
+      setter: React.Dispatch<React.SetStateAction<Country[]>>
+    ) => {
+      try {
+        const data: Country[] = await fetchCountries();
+
+        if (data.length > 0) {
+          setter(data);
+          console.log(data);
+        }
+      } catch (err) {
+        throw Error(err);
+      }
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     fetchCountryApiData(setCountries);
   }, []);
 
