@@ -1,0 +1,25 @@
+@import '../../../../styles/apps';
+
+.container {
+  background-color: $gray-600;
+  border-radius: 0 0 5px 5px;
+  padding: 20px;
+  margin-top: -4px;
+}
+
+.countryName {
+  padding-bottom: 10px;
+}
+
+.countryDetail {
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.countryDetail span {
+  font-weight: 400;
+}
+
+.detail {
+  padding-bottom: 5px;
+}

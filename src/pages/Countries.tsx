@@ -29,9 +29,11 @@ const Countries = (): JSX.Element => {
 
   return (
     <>
-      {countries.map((country: Country) => (
-        <CountryCard key={country.name.toLowerCase()} country={country} />
-      ))}
+      <section className="grid">
+        {countries.map((country: Country) => (
+          <CountryCard key={country.numericCode} country={country} />
+        ))}
+      </section>
     </>
   );
 };
