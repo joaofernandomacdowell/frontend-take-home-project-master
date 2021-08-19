@@ -1,4 +1,4 @@
-@import '../../../../styles/apps';
+@import '../../../../styles/app';
 
 .container {
   background-color: $gray-600;
@@ -18,8 +18,4 @@
 
 .countryDetail span {
   font-weight: 400;
-}
-
-.detail {
-  padding-bottom: 5px;
 }

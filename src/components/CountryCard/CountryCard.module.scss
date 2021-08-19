@@ -1,3 +1,27 @@
-.flag {
-  width: 100%;
+@import '../../styles/app';
+
+// Details
+.detailsContainer {
+  background-color: $gray-600;
+  border-radius: 0 0 5px 5px;
+  padding: 20px;
+  margin-top: -4px;
+}
+
+.countryName {
+  padding-bottom: 10px;
+}
+
+.countryDetail {
+  font-weight: 700;
+  padding-bottom: 5px;
+}
+
+.countryDetail span {
+  font-weight: 400;
+}
+
+// Flag
+.flagContainer {
+  border-radius: 5px 5px 0 0;
 }

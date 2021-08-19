@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import CountryCard from '../components/CountryCard';
-import { Country } from '../api/types';
-import fetchCountries from '../api/fetchCountries';
+import CountryCard from '../../components/CountryCard';
+import { Country } from '../../api/types';
+import fetchCountries from '../../api/fetchCountries';
+
+import styles from './Countries.module.scss';
 
 const Countries = (): JSX.Element => {
   const [countries, setCountries] = useState([]);
@@ -29,7 +31,7 @@ const Countries = (): JSX.Element => {
 
   return (
     <>
-      <section className="grid">
+      <section className={styles.container}>
         {countries.map((country: Country) => (
           <CountryCard key={country.numericCode} country={country} />
         ))}

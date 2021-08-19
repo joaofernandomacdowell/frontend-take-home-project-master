@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Flag.module.scss';
+import styles from '../../CountryCard.module.scss';
 
 interface FlagProps {
   imageUrl: string;
@@ -8,7 +8,7 @@ interface FlagProps {
 }
 
 const Flag = ({ imageUrl, alt }: FlagProps): JSX.Element => (
-  <div className={styles.container}>
+  <div className={styles.flagContainer}>
     <img src={imageUrl} alt={alt} />
   </div>
 );

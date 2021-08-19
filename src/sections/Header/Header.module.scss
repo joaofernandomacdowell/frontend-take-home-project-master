@@ -1,0 +1,14 @@
+@import '../../styles/mixins';
+@import '../../styles/variables.scss';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $gray-600;
+  padding: 10px 20px;
+
+  @include media-large {
+    padding: 20px 100px;
+  }
+}

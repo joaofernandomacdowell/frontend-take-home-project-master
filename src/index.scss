@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
-@import './styles/apps';
+@import './styles/app';
 
 * {
   margin: 0;
@@ -9,29 +9,10 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  padding: 20px;
   background-color: $gray-800;
   color: $white;
 }
 
 img {
   max-width: 100%;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-
-  @include media-small {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include media-medium {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  @include media-large {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
