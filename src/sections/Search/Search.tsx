@@ -1,20 +1,35 @@
-import { format } from 'prettier';
-import React from 'react';
+import React, { useState } from 'react';
 
+import useDebounce from '../../hooks/useDebounce';
 import styles from './Search.module.scss';
 
-const Search = (): JSX.Element => {
+interface SearchProps {
+  value: string;
+  onChange: (text: string) => void;
+}
+
+const Search = ({ value, onChange }: SearchProps): JSX.Element => {
+  const [displayValue, setDisplayValue] = useState(value);
+  const debounceChange = useDebounce(onChange, 500);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setDisplayValue(e.target.value);
+    debounceChange(e.target.value);
+  };
+
   return (
     <section className={styles.search}>
-      <form className={styles.form}>
-        <input
-          className={styles.searchBar}
-          type="search"
-          name="search"
-          id="search"
-          placeholder="Search for a country"
-        />
-      </form>
+      <input
+        className={styles.searchBar}
+        type="search"
+        name="search"
+        id="search"
+        value={displayValue}
+        onChange={handleInputChange}
+        placeholder="Search for a country"
+      />
     </section>
   );
 };

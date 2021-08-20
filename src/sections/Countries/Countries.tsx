@@ -1,35 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import CountryCard from '../../components/CountryCard';
 import { Country } from '../../api/types';
-import fetchCountries from '../../api/fetchCountries';
+import { fetchCountries } from '../../redux/actions/countriesActions';
+import { AppState } from '../../redux/store';
 
 import styles from './Countries.module.scss';
 
-const Countries = (): JSX.Element => {
-  const [countries, setCountries] = useState([]);
+interface CountriesProps {
+  countries: Country[];
+  fetchAllCountries: () => void;
+  loading: boolean;
+}
 
+const Countries = ({
+  loading,
+  countries,
+  fetchAllCountries,
+}: CountriesProps): JSX.Element => {
   useEffect(() => {
-    const fetchCountryApiData = async (
-      setter: React.Dispatch<React.SetStateAction<Country[]>>
-    ) => {
-      try {
-        const data: Country[] = await fetchCountries();
+    fetchAllCountries();
+  }, [fetchAllCountries]);
 
-        if (data.length > 0) {
-          setter(data);
-          console.log(data);
-        }
-      } catch (err) {
-        throw Error(err);
-      }
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    fetchCountryApiData(setCountries);
-  }, []);
-
-  return (
+  return loading && countries.length === 0 ? (
+    <h2>Loading...</h2>
+  ) : (
     <>
       <section className={styles.container}>
         {countries.map((country: Country) => (
@@ -40,4 +37,16 @@ const Countries = (): JSX.Element => {
   );
 };
 
-export default Countries;
+const mapStateToProps = (state: AppState) => ({
+  loading: state.allCountries.isFetching,
+  countries: state.allCountries.countries,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  fetchAllCountries: fetchCountries(dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Countries);

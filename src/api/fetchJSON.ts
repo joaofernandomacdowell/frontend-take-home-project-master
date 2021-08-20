@@ -32,8 +32,12 @@ const fetchJSON = async <T>(
   try {
     const response = await fetch(url, finalOptions);
     if (!response.ok) {
-      console.error(`Failed Fetching (${url}): ${response.statusText}`);
-      throw new Error(`Failed fetching URL: ${url}\n${response.statusText}`);
+      console.error(
+        `Failed Fetching (${url}): ${response.statusText}`
+      );
+      throw new Error(
+        `Failed fetching URL: ${url}\n${response.statusText}`
+      );
     }
 
     const data = await response.json();

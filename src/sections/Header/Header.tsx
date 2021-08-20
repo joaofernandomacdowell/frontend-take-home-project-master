@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// import fetchCountries from '../../api/fetchCountries';
+// import { Country } from '../../api/types';
 import Search from '../Search';
 
 import styles from './Header.module.scss';
