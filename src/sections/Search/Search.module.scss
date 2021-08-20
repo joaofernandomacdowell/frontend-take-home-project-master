@@ -2,43 +2,40 @@
 @import '../../styles/variables.scss';
 
 .search {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-
-  @include media-medium {
-    flex-direction: row;
-  }
-
-  @include media-large {
-    padding: 20px 100px;
-  }
-}
-
-.form {
+  padding-top: 20px;
   width: 100%;
 
   @include media-medium {
+    padding-top: 0;
     width: auto;
+  }
+
+  @include media-large {
+    padding: 0 96px;
   }
 }
 
 .searchBar {
-  background-color: $gray-600;
+  background-color: $gray-800;
   border: none;
   outline: none;
   padding: 12px;
   border-radius: 5px;
   color: $white;
   font-family: inherit;
+  font-size: 14px;
   letter-spacing: 0.5px;
   width: 100%;
+  height: 50px;
+  min-width: 200px;
 
   @include media-medium {
-    width: auto;
+    min-width: 300px;
     margin: 0;
+  }
+
+  @include media-large {
+    min-width: 500px;
   }
 }
 

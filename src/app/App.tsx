@@ -1,10 +1,9 @@
 import React from 'react';
-import { Header, Search, Countries } from '../sections';
+import { Header, Countries } from '../sections';
 
 const App = (): JSX.Element => (
   <>
     <Header />
-    <Search />
     <Countries />
   </>
 );
