@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 // import { Dispatch } from 'redux';
 
@@ -34,15 +34,18 @@ const Countries = ({
   const [itemsPerPage] = useState(ITEMS_PER_PAGE);
   const dispatch = useDispatch();
 
+  // Execute once the componente renders the first time (componentDidMount like)
   useEffect(() => {
     dispatch(fetchCountries());
-    // fetchAllCountries();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(fetchCountries(searchText));
-  // }, [dispatch, searchText]);
+  // Execute when input searchText has changed
+  useEffect(() => {
+    if (searchText.length > 1) {
+      dispatch(fetchCountries(searchText));
+    }
+  }, [dispatch, searchText]);
 
   if (hasError) {
     return <h2>Error Page</h2>;
@@ -63,7 +66,6 @@ const Countries = ({
 
   return (
     <>
-      <Search />
       <section className={styles.container}>
         {currentCountries.map((country: Country) => (
           <CountryCard key={country.numericCode} country={country} />
@@ -85,11 +87,4 @@ const mapStateToProps = (state: AppState) => ({
   searchText: state.searchText.text,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchAllCountries: fetchCountries(dispatch),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Countries);
+export default connect(mapStateToProps)(Countries);

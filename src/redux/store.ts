@@ -11,7 +11,9 @@ const initialState = {
     hasError: false,
     countries: [],
   },
-  searchText: '',
+  searchText: {
+    text: '',
+  },
 };
 
 export type AppState = ReturnType<typeof rootReducer>;

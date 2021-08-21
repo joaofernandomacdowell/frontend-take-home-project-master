@@ -30,16 +30,29 @@ export const fetchCountriesFailure = (
 });
 
 // Side Effects
-export const fetchCountries =
-  (dispatch: Dispatch) => async (): Promise<void> => {
+// export const fetchCountries =
+//   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+//   (dispatch: Dispatch) => async (countryName: string) => {
+//     dispatch(fetchCountriesBegin());
+//     try {
+//       const countries = await fetchCountriesApi(countryName);
+//       dispatch(fetchCountriesSuccess(countries));
+//     } catch (err) {
+//       dispatch(fetchCountriesFailure(err));
+//     }
+//   };
+
+export const fetchCountries = (countryName?: string) => {
+  return async (dispatch: Dispatch): Promise<void> => {
     dispatch(fetchCountriesBegin());
     try {
-      const countries = await fetchCountriesApi();
+      const countries = await fetchCountriesApi(countryName);
       dispatch(fetchCountriesSuccess(countries));
     } catch (err) {
       dispatch(fetchCountriesFailure(err));
     }
   };
+};
 
 // export function fetchCountries() {
 //   return (dispatch: Dispatch): any => {
