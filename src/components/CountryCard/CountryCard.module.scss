@@ -19,15 +19,20 @@
 }
 
 .countryName {
-  padding-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .countryDetail {
-  font-weight: 700;
-  padding-bottom: 5px;
+  margin-bottom: 0.6rem;
 }
 
-.countryDetail span {
+.infoKey {
+  margin-right: 0.375rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.infoValue {
   font-weight: 400;
 }
 

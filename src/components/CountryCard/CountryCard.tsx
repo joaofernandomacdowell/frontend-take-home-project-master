@@ -17,7 +17,7 @@ const CountryCard = ({ country }: CountryCardProps): JSX.Element => (
     <Details
       name={country.name}
       details={{
-        Population: country.population,
+        Population: country.population.toLocaleString(),
         Region: country.region,
         Capital: country.capital,
       }}

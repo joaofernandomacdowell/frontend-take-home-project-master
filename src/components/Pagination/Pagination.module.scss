@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  margin: 0 auto;
+}
+
+.pageItem {
+  padding: 1rem 1.25rem;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.pageLink {
+  color: $gray-800;
+}

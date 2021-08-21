@@ -14,9 +14,10 @@ const Details = ({ name, details }: DetailsProps): JSX.Element => (
   <div className={styles.detailsContainer}>
     <h3 className={styles.countryName}>{name}</h3>
     {Object.keys(details).map((key) => (
-      <h5 key={key} className={styles.countryDetail}>
-        {key}: <span>{details[key]}</span>
-      </h5>
+      <div key={key} className={styles.countryDetail}>
+        <span className={styles.infoKey}>{key}: </span>
+        <span className={styles.infoValue}>{details[key]}</span>
+      </div>
     ))}
   </div>
 );
