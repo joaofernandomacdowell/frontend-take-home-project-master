@@ -3,15 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.6.1",
-    "@types/react": "^17.0.18",
-    "@types/react-dom": "^17.0.9",
     "node-sass": "^4.14.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^7.2.4",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "typescript": "^4.3.5"
@@ -24,7 +20,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.6.1",
+    "@types/react": "^17.0.18",
+    "@types/react-dom": "^17.0.9",
     "@types/react-redux": "^7.1.18",
+    "@types/react-router-dom": "^5.1.8",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
