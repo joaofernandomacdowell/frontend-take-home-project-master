@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import styles from './Search.module.scss';
 import { setSearchCountry } from '../../redux/actions/searchActions';
 
+import { Container, Row } from '../../components/Grid';
+
 const Search = (): JSX.Element => {
   const dispatch = useDispatch();
   const [searchText, setSearchText] = useState('');
@@ -19,17 +21,21 @@ const Search = (): JSX.Element => {
   };
 
   return (
-    <section className={styles.search}>
-      <input
-        className={styles.searchBar}
-        type="search"
-        name="search"
-        id="search"
-        value={searchText}
-        onChange={handleOnChange}
-        placeholder="Search for a country"
-      />
-    </section>
+    <Container>
+      <Row>
+        <section className={styles.search}>
+          <input
+            className={styles.searchBar}
+            type="search"
+            name="search"
+            id="search"
+            value={searchText}
+            onChange={handleOnChange}
+            placeholder="Search for a country"
+          />
+        </section>
+      </Row>
+    </Container>
   );
 };
 

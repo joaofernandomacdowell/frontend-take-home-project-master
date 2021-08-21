@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './Pagination.module.scss';
 
 interface PaginationProps {
@@ -13,7 +14,6 @@ const Pagination = ({
   paginate,
 }: PaginationProps): JSX.Element => {
   const pageNumbers: number[] = [];
-  const limitPageNumbers: number[] = [];
 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i += 1) {
     pageNumbers.push(i);

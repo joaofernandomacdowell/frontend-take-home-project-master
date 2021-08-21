@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .notFound {
-  margin: 32px 96px;
+  margin: 0.5rem 2rem;
   width: auto;
 }
 
@@ -7,11 +9,11 @@
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1px;
-  color: #d12b2b;
+  color: $red;
 }
 
 .searchTerm {
   font-size: 24px;
   font-weight: 700;
-  color: #7febaf;
+  color: $green;
 }

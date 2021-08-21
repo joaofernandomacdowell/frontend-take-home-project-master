@@ -27,8 +27,6 @@ const countriesReducer = (
   state: State = INITIAL_STATE,
   action: CountriesActionTypes
 ): State => {
-  console.log('action', action);
-
   switch (action.type) {
     case FETCH_COUNTRIES_BEGIN:
       return {

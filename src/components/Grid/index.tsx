@@ -3,24 +3,13 @@ import React from 'react';
 import styles from './Grid.module.scss';
 
 interface GridProps {
-  type: string;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 }
 
-const Grid = ({ children, type }: GridProps): JSX.Element => {
-  let className = '';
-  switch (type) {
-    case 'container':
-      className = styles.container;
-      break;
-    case 'row':
-      className = styles.row;
-      break;
-    default:
-      return <>{children}</>;
-  }
+export const Container = ({ children }: GridProps): JSX.Element => (
+  <div className={styles.container}>{children}</div>
+);
 
-  return <div className={className}>{children}</div>;
-};
-
-export default Grid;
+export const Row = ({ children }: GridProps): JSX.Element => (
+  <div className={styles.row}>{children}</div>
+);

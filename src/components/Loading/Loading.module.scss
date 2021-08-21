@@ -1,11 +1,12 @@
+@import '../../styles/variables';
+
 .loading {
-  //   border: 1px solid red;
-  margin: 32px 96px;
+  margin: 0.5rem 2rem;
   width: auto;
 }
 
 .loading span {
   font-size: 24px;
   font-weight: 700;
-  color: #7febaf;
+  color: $green;
 }

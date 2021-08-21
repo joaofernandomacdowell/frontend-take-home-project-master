@@ -1,17 +1,17 @@
 import React from 'react';
 
 import styles from './Header.module.scss';
-import Grid from '../../components/Grid';
+import { Container, Row } from '../../components/Grid';
 
 const Header = (): JSX.Element => {
   return (
     <>
       <header className={styles.header}>
-        <Grid type="container">
-          <Grid type="row">
+        <Container>
+          <Row>
             <h1 className={styles.title}>Countries Rest API</h1>
-          </Grid>
-        </Grid>
+          </Row>
+        </Container>
       </header>
     </>
   );
