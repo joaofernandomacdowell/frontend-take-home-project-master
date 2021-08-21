@@ -1,0 +1,13 @@
+@import '../../styles/mixins';
+
+.container {
+  max-width: rem-calc(1440px);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+}
