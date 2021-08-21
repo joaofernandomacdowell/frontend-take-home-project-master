@@ -1,17 +1,18 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
-// import { Dispatch } from 'redux';
 
 import styles from './Countries.module.scss';
-
-import Search from '../Search';
 
 import { Country } from '../../api/types';
 import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
-import CountryCard from '../../components/CountryCard';
-import Pagination from '../../components/Pagination';
+import {
+  CountryCard,
+  Pagination,
+  Loading,
+  NotFound,
+} from '../../components';
 
 interface CountriesProps {
   isFetching: boolean;
@@ -42,17 +43,15 @@ const Countries = ({
 
   // Execute when input searchText has changed
   useEffect(() => {
-    if (searchText.length > 1) {
-      dispatch(fetchCountries(searchText));
-    }
+    dispatch(fetchCountries(searchText));
   }, [dispatch, searchText]);
 
   if (hasError) {
-    return <h2>Error Page</h2>;
+    return <NotFound searchTerm={searchText} />;
   }
 
   if (isFetching && countries.length === 0) {
-    return <h2>Loading...</h2>;
+    return <Loading />;
   }
 
   const indexOfLastCountry = currentPage * itemsPerPage;

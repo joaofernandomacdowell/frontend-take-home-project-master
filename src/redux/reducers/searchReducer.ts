@@ -12,7 +12,6 @@ const searchReducer = (
   state: State = INITIAL_STATE,
   action: SetSearchCountryAction
 ): State => {
-  console.log('action', action);
   switch (action.type) {
     case SET_SEARCH_COUNTRY:
       return { ...state, text: action.payload };
