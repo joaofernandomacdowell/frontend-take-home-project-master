@@ -6,11 +6,12 @@ import {
 } from 'react-router-dom';
 
 import { Header, Countries } from '../sections';
+import styles from './App.module.scss';
 
 const App = (): JSX.Element => (
   <>
     <Header />
-    <main>
+    <main className={styles.container}>
       <Router>
         <Switch>
           <Route path="/" exact component={Countries} />

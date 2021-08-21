@@ -1,5 +1,15 @@
 @import '../../styles/app';
 
+// CountryCard
+.card {
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
 // Details
 .detailsContainer {
   background-color: $gray-600;
@@ -22,6 +32,9 @@
 }
 
 // Flag
-.flagContainer {
+.flag {
   border-radius: 5px 5px 0 0;
+  height: 12.5rem;
+  object-fit: cover;
+  width: 100%;
 }

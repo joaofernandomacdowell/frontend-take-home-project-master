@@ -40,3 +40,16 @@ export const fetchCountries =
       dispatch(fetchCountriesFailure(err));
     }
   };
+
+// export function fetchCountries() {
+//   return (dispatch: Dispatch): any => {
+//     dispatch(fetchCountriesBegin());
+//     return fetch('restcountries.eu/rest/v2')
+//       .then((res) => res.json())
+//       .then((countries) => {
+//         dispatch(fetchCountriesSuccess(countries));
+//         return countries;
+//       })
+//       .catch((error) => dispatch(fetchCountriesFailure(error)));
+//   };
+// }

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
 import countriesReducer from './countriesReducer';
+import searchReducer from './searchReducer';
 
-const reducers = combineReducers({
-  allCountries: countriesReducer,
+export default combineReducers({
+  countries: countriesReducer,
+  searchText: searchReducer,
 });
-
-export default reducers;

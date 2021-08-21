@@ -1,18 +1,25 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
 const initialState = {
-  allCountries: {
+  countries: {
     isFetching: false,
     hasError: false,
     countries: [],
   },
+  searchText: '',
 };
 
 export type AppState = ReturnType<typeof rootReducer>;
 
-const store = createStore(rootReducer, initialState);
+const store = createStore(
+  rootReducer,
+  initialState,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 export default store;

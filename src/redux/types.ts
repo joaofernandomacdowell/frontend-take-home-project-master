@@ -4,6 +4,7 @@ import { Country } from '../api/types';
 export const FETCH_COUNTRIES_BEGIN = 'FETCH_COUNTRIES_BEGIN';
 export const FETCH_COUNTRIES_SUCCESS = 'FETCH_COUNTRIES_SUCCESS';
 export const FETCH_COUNTRIES_FAILURE = 'FETCH_COUNTRIES_FAILURE';
+export const SET_SEARCH_COUNTRY = 'SET_SEARCH_COUNTRY';
 
 // Action Types
 export interface FetchCountriesBeginAction {
@@ -20,15 +21,9 @@ export interface FetchCountriesFailedAction {
   payload: string;
 }
 
-// State
-export interface State {
-  isFetching: boolean;
-  hasError: boolean;
-  countries: Country[];
-  meta?: {
-    country?: string;
-    errorMessage?: string;
-  };
+export interface SetSearchCountryAction {
+  type: typeof SET_SEARCH_COUNTRY;
+  payload: string;
 }
 
 export type CountriesActionTypes =

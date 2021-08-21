@@ -3,7 +3,7 @@ import { Country } from './types';
 
 const COUNTRIES_API_ENDPOINT = 'restcountries.eu/rest/v2';
 
-const fetchCountries = async (
+const fetchCountriesApi = async (
   countryName?: string
 ): Promise<Country[]> => {
   const baseUrl = `https://${COUNTRIES_API_ENDPOINT}`;
@@ -14,4 +14,4 @@ const fetchCountries = async (
   return fetchJSON<Country[]>(finalUrl);
 };
 
-export default fetchCountries;
+export default fetchCountriesApi;

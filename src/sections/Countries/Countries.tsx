@@ -12,22 +12,34 @@ import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
 interface CountriesProps {
+  isFetching: boolean;
+  hasError: boolean;
   countries: Country[];
   fetchAllCountries: () => void;
-  loading: boolean;
+  searchText: string;
 }
 
 const Countries = ({
-  loading,
+  isFetching,
+  hasError,
   countries,
   fetchAllCountries,
+  searchText,
 }: CountriesProps): JSX.Element => {
   useEffect(() => {
     fetchAllCountries();
   }, [fetchAllCountries]);
 
-  return loading && countries.length === 0 ? (
-    <h2>Loading...</h2>
+  useEffect(() => {
+    console.log('useEffect', searchText);
+  }, [searchText]);
+
+  if (hasError) {
+    return <h2>Error Page</h2>;
+  }
+
+  return isFetching && countries.length === 0 ? (
+    <h2>isFetching...</h2>
   ) : (
     <>
       <Search />
@@ -41,8 +53,10 @@ const Countries = ({
 };
 
 const mapStateToProps = (state: AppState) => ({
-  loading: state.allCountries.isFetching,
-  countries: state.allCountries.countries,
+  isFetching: state.countries.isFetching,
+  hasError: state.countries.hasError,
+  countries: state.countries.countries,
+  searchText: state.searchText.text,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 // import useDebounce from '../../hooks/useDebounce';
 import styles from './Search.module.scss';
+import { setSearchCountry } from '../../redux/actions/searchActions';
 
 const Search = (): JSX.Element => {
-  const [searchText, setsearchText] = useState<string>('');
+  const dispatch = useDispatch();
+  const [searchText, setSearchText] = useState('');
+
+  useEffect(() => {
+    dispatch(setSearchCountry(searchText));
+  }, [searchText, dispatch]);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setsearchText(e.target.value);
+    setSearchText(e.target.value);
   };
 
   return (

@@ -3,10 +3,21 @@ import {
   FETCH_COUNTRIES_SUCCESS,
   FETCH_COUNTRIES_FAILURE,
   CountriesActionTypes,
-  State,
 } from '../types';
 
-const INITIAL_STATE = {
+import { Country } from '../../api/types';
+
+// State
+interface State {
+  isFetching: boolean;
+  hasError: boolean;
+  countries: Country[];
+  meta?: {
+    errorMessage?: string;
+  };
+}
+
+const INITIAL_STATE: State = {
   isFetching: false,
   hasError: false,
   countries: [],
@@ -16,6 +27,7 @@ const countriesReducer = (
   state: State = INITIAL_STATE,
   action: CountriesActionTypes
 ): State => {
+  console.log('reducer action', action);
   switch (action.type) {
     case FETCH_COUNTRIES_BEGIN:
       return {
@@ -35,6 +47,7 @@ const countriesReducer = (
         ...state,
         isFetching: false,
         hasError: true,
+        meta: { errorMessage: action.payload },
       };
     default:
       return state;
