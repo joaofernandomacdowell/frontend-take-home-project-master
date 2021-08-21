@@ -9,12 +9,12 @@
   background-color: $gray-600;
   padding: 16px 16px;
 
-  @include media-large {
+  @include breakpoint(desktop) {
     flex-direction: row;
     padding: 20px 96px;
   }
 
-  @include media-medium {
+  @include breakpoint(tablet) {
     flex-direction: row;
     padding: 20px 48px;
   }
@@ -23,7 +23,7 @@
 .title {
   font-size: 24px;
 
-  @include media-medium {
+  @include breakpoint(tablet) {
     min-width: 300px;
   }
 }

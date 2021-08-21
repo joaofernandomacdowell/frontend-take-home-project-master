@@ -1,17 +1,64 @@
 @mixin media-small {
-  @media only screen and (min-width: $sm) {
+  @media only screen and (min-width: 640px) {
     @content;
   }
 }
 
 @mixin media-medium {
-  @media only screen and (min-width: $md) {
+  @media only screen and (min-width: 768px) {
     @content;
   }
 }
 
 @mixin media-large {
-  @media only screen and (min-width: $lg) {
+  @media only screen and (min-width: 992px) {
     @content;
+  }
+}
+
+// rem calc
+$rem-base: 16px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  }
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append(
+      $remValues,
+      convert-to-rem(nth($values, $i), $base-value)
+    );
+  }
+  @return $remValues;
+}
+
+// Media queries
+@mixin breakpoint($point) {
+  @if $point == desktop {
+    @media (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: $tablet-breakpoint) and (max-width: 980px) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media (max-width: $tablet-breakpoint) {
+      @content;
+    }
   }
 }

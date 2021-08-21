@@ -1,5 +1,5 @@
 @import '../../styles/mixins';
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 
 .container {
   display: grid;
@@ -7,16 +7,11 @@
   gap: 3rem;
   padding: 1rem 1.5rem;
 
-  @include media-small {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @include media-medium {
+  @include breakpoint(tablet) {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @include media-large {
-    padding: 20px 100px;
+  @include breakpoint(desktop) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
