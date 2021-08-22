@@ -7,7 +7,9 @@ import {
 
 import Header from '../components/Header';
 import Search from '../components/Search';
+
 import Countries from '../pages/Countries';
+import CountryProfile from '../pages/CountryProfile';
 
 import styles from './App.module.scss';
 
@@ -19,6 +21,11 @@ const App = (): JSX.Element => (
       <Router>
         <Switch>
           <Route path="/" exact component={Countries} />
+          <Route
+            path="/country/:countryName"
+            exact
+            component={CountryProfile}
+          />
         </Switch>
       </Router>
     </main>

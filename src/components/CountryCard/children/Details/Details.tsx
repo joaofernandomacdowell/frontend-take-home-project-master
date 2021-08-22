@@ -8,17 +8,11 @@ interface Detail {
 
 interface DetailsProps {
   details: Detail;
-  shouldOpen: boolean | (() => void);
 }
 
-const Details = ({
-  details,
-  shouldOpen,
-}: DetailsProps): JSX.Element => {
-  const detailsOpenedClass = shouldOpen ? styles.detailsOpened : null;
-
+const Details = ({ details }: DetailsProps): JSX.Element => {
   return (
-    <div className={`${styles.details} ${detailsOpenedClass}`}>
+    <>
       {Object.keys(details).map((key) => (
         <div key={key} className={styles.detailInfoWrapper}>
           <span className={styles.detailInfoKey}>{key}: </span>
@@ -27,7 +21,7 @@ const Details = ({
           </span>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 
