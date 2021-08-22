@@ -16,7 +16,6 @@ interface CountriesProps {
   isFetching: boolean;
   hasError: boolean;
   countries: Country[];
-  // fetchAllCountries: (countryName?: string) => void;
   searchText: string;
 }
 
@@ -26,18 +25,11 @@ const Countries = ({
   isFetching,
   hasError,
   countries,
-  // fetchAllCountries,
   searchText,
 }: CountriesProps): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(ITEMS_PER_PAGE);
   const dispatch = useDispatch();
-
-  // Execute once the componente renders the first time (componentDidMount like)
-  useEffect(() => {
-    dispatch(fetchCountries());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // Execute when input searchText has changed
   useEffect(() => {
