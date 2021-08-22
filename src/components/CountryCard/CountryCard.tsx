@@ -12,7 +12,6 @@ interface CountryCardProps {
   country: Country;
 }
 
-// increase details object props
 const CountryCard = ({ country }: CountryCardProps): JSX.Element => {
   const [open, setToggle] = useToggle();
 

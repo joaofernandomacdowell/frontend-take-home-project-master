@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import styles from './Search.module.scss';
 import { setSearchCountry } from '../../redux/actions/searchActions';
 
-import { Container, Row } from '../../components/Grid';
+import { Container, Row } from '../Grid';
 
 const Search = (): JSX.Element => {
   const dispatch = useDispatch();

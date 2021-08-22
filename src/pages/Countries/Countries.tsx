@@ -7,12 +7,10 @@ import { Country } from '../../api/types';
 import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
-import {
-  CountryCard,
-  Pagination,
-  Loading,
-  NotFound,
-} from '../../components';
+import CountryCard from '../../components/CountryCard';
+import Pagination from '../../components/Pagination';
+import Loading from '../../components/Loading';
+import NotFound from '../../components/NotFound';
 
 interface CountriesProps {
   isFetching: boolean;

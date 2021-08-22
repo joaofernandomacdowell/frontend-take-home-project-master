@@ -5,7 +5,10 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { Header, Countries, Search } from '../sections';
+import Header from '../components/Header';
+import Search from '../components/Search';
+import Countries from '../pages/Countries';
+
 import styles from './App.module.scss';
 
 const App = (): JSX.Element => (

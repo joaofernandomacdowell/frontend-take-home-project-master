@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './Header.module.scss';
-import { Container, Row } from '../../components/Grid';
+import { Container, Row } from '../Grid';
 
 const Header = (): JSX.Element => {
   return (
