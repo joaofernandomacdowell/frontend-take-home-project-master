@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import styles from './Countries.module.scss';
@@ -86,4 +86,4 @@ const mapStateToProps = (state: AppState) => ({
   searchText: state.searchText.text,
 });
 
-export default connect(mapStateToProps)(Countries);
+export default connect(mapStateToProps)(memo(Countries));

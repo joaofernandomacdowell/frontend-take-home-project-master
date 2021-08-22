@@ -10,7 +10,7 @@
   }
 }
 
-.searchBar {
+.searchInput {
   background-color: $gray-600;
   border: none;
   outline: none;
@@ -25,6 +25,11 @@
   min-width: 200px;
   border: 1px solid $gray-900;
 
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
   @include breakpoint(tablet) {
     min-width: 300px;
     margin: 0;
@@ -35,6 +40,6 @@
   }
 }
 
-.searchBar::placeholder {
+.searchInput::placeholder {
   color: $white;
 }

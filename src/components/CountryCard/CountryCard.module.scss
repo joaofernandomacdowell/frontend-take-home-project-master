@@ -10,8 +10,7 @@
   }
 }
 
-// Details
-.detailsContainer {
+.cardDetails {
   background-color: $gray-600;
   border-radius: 0 0 5px 5px;
   padding: 20px;
@@ -20,20 +19,7 @@
 
 .countryName {
   margin-bottom: 1rem;
-}
-
-.countryDetail {
-  margin-bottom: 0.6rem;
-}
-
-.infoKey {
-  margin-right: 0.375rem;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.infoValue {
-  font-weight: 400;
+  color: $white;
 }
 
 // Flag
@@ -42,4 +28,29 @@
   height: 12.5rem;
   object-fit: cover;
   width: 100%;
+}
+
+// Details
+.details {
+  display: none;
+}
+
+.detailsOpened {
+  display: block;
+}
+
+.detailInfoWrapper {
+  margin-bottom: 0.6rem;
+}
+
+.detailInfoKey {
+  margin-right: 0.375rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: $white;
+}
+
+.detailInfoValue {
+  font-weight: 400;
+  color: $white;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from '../../CountryCard.module.scss';
 
 interface Detail {
@@ -6,20 +7,28 @@ interface Detail {
 }
 
 interface DetailsProps {
-  name: string;
   details: Detail;
+  shouldOpen: boolean | (() => void);
 }
 
-const Details = ({ name, details }: DetailsProps): JSX.Element => (
-  <div className={styles.detailsContainer}>
-    <h3 className={styles.countryName}>{name}</h3>
-    {Object.keys(details).map((key) => (
-      <div key={key} className={styles.countryDetail}>
-        <span className={styles.infoKey}>{key}: </span>
-        <span className={styles.infoValue}>{details[key]}</span>
-      </div>
-    ))}
-  </div>
-);
+const Details = ({
+  details,
+  shouldOpen,
+}: DetailsProps): JSX.Element => {
+  const detailsOpenedClass = shouldOpen ? styles.detailsOpened : null;
+
+  return (
+    <div className={`${styles.details} ${detailsOpenedClass}`}>
+      {Object.keys(details).map((key) => (
+        <div key={key} className={styles.detailInfoWrapper}>
+          <span className={styles.detailInfoKey}>{key}: </span>
+          <span className={styles.detailInfoValue}>
+            {details[key]}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default Details;

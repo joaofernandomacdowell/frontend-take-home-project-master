@@ -25,7 +25,7 @@ const Search = (): JSX.Element => {
       <Row>
         <section className={styles.search}>
           <input
-            className={styles.searchBar}
+            className={styles.searchInput}
             type="search"
             name="search"
             id="search"
