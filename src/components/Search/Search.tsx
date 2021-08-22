@@ -1,22 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useRef, useState } from 'react';
 
-// import useDebounce from '../../hooks/useDebounce';
+import useDebounce from '../../hooks/useDebounce';
 import styles from './Search.module.scss';
-import { setSearchCountry } from '../../redux/actions/searchActions';
 
 import { Container, Row } from '../Grid';
 
-const Search = (): JSX.Element => {
-  const dispatch = useDispatch();
-  const [searchText, setSearchText] = useState('');
+interface SearchProps {
+  text: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onChange: any;
+}
+
+const Search = ({ text, onChange }: SearchProps): JSX.Element => {
+  const [searchText, setSearchText] = useState(text);
+  const inputRef = useRef<HTMLInputElement>();
+  const debouncedChange = useDebounce(onChange, 500);
 
   useEffect(() => {
-    dispatch(setSearchCountry(searchText));
-  }, [searchText, dispatch]);
+    inputRef?.current?.focus();
+  }, []);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
+    debouncedChange(e.target.value);
   };
 
   return (
@@ -24,6 +30,7 @@ const Search = (): JSX.Element => {
       <Row>
         <section className={styles.search}>
           <input
+            ref={inputRef}
             className={styles.searchInput}
             type="search"
             name="search"

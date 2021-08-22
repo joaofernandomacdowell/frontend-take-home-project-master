@@ -11,12 +11,12 @@ import CountryCard from '../../components/CountryCard';
 import Pagination from '../../components/Pagination';
 import Loading from '../../components/Loading';
 import NotFound from '../../components/NotFound';
+import Search from '../../components/Search';
 
 interface CountriesProps {
   isFetching: boolean;
   hasError: boolean;
   countries: Country[];
-  searchText: string;
 }
 
 const ITEMS_PER_PAGE = 20;
@@ -25,19 +25,19 @@ const Countries = ({
   isFetching,
   hasError,
   countries,
-  searchText,
 }: CountriesProps): JSX.Element => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(ITEMS_PER_PAGE);
+  const [text, setText] = useState('');
   const dispatch = useDispatch();
 
   // Execute when input searchText has changed
   useEffect(() => {
-    dispatch(fetchCountries(searchText));
-  }, [dispatch, searchText]);
+    dispatch(fetchCountries(text));
+  }, [dispatch, text]);
 
   if (hasError) {
-    return <NotFound searchTerm={searchText} />;
+    return <NotFound searchTerm={text} />;
   }
 
   if (isFetching && countries.length === 0) {
@@ -55,6 +55,10 @@ const Countries = ({
 
   return (
     <>
+      <Search
+        text={text}
+        onChange={(searchTerm) => setText(searchTerm)}
+      />
       <section className={styles.countriesList}>
         {currentCountries.map((country: Country) => (
           <CountryCard key={country.alpha3Code} country={country} />
@@ -69,14 +73,10 @@ const Countries = ({
   );
 };
 
-const mapStateToProps = ({
-  countriesState,
-  searchState,
-}: AppState) => ({
+const mapStateToProps = ({ countriesState }: AppState) => ({
   isFetching: countriesState.isFetching,
   hasError: countriesState.hasError,
   countries: countriesState.countries,
-  searchText: searchState.text,
 });
 
 export default connect(mapStateToProps)(memo(Countries));

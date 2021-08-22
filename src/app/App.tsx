@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 
 import Header from '../components/Header';
-import Search from '../components/Search';
 
 import Countries from '../pages/Countries';
 import CountryProfile from '../pages/CountryProfile';
@@ -27,7 +26,6 @@ const App = (): JSX.Element => {
     <>
       <Header />
       <main className={styles.container}>
-        <Search />
         <Router>
           <Switch>
             <Route path="/" exact component={Countries} />
