@@ -55,7 +55,7 @@ const Countries = ({
 
   return (
     <>
-      <section className={styles.container}>
+      <section className={styles.countriesList}>
         {currentCountries.map((country: Country) => (
           <CountryCard key={country.alpha3Code} country={country} />
         ))}
