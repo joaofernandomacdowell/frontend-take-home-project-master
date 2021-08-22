@@ -14,7 +14,7 @@ interface CountryCardProps {
 const CountryCard = ({ country }: CountryCardProps): JSX.Element => {
   return (
     <article className={styles.card}>
-      <Link to={`/country/${country.name}`}>
+      <Link to={`/country/${country.alpha3Code}`}>
         <Flag imageUrl={country.flag} alt={country.name} />
         <div className={styles.cardDetails}>
           <h3 className={styles.countryName}>{country.name}</h3>

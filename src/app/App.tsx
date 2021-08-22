@@ -22,7 +22,7 @@ const App = (): JSX.Element => (
         <Switch>
           <Route path="/" exact component={Countries} />
           <Route
-            path="/country/:countryName"
+            path="/country/:countryCode"
             exact
             component={CountryProfile}
           />

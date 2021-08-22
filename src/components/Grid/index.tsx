@@ -1,1 +1,1 @@
-export { Container, Row } from './Grid';
+export { Container, Row, Col } from './Grid';

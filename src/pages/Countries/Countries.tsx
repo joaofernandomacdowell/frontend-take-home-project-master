@@ -65,7 +65,7 @@ const Countries = ({
     <>
       <section className={styles.container}>
         {currentCountries.map((country: Country) => (
-          <CountryCard key={country.numericCode} country={country} />
+          <CountryCard key={country.alpha3Code} country={country} />
         ))}
       </section>
       <Pagination

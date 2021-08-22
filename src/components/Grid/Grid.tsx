@@ -13,3 +13,7 @@ export const Container = ({ children }: GridProps): JSX.Element => (
 export const Row = ({ children }: GridProps): JSX.Element => (
   <div className={styles.row}>{children}</div>
 );
+
+export const Col = ({ children }: GridProps): JSX.Element => (
+  <div className={styles.col}>{children}</div>
+);
