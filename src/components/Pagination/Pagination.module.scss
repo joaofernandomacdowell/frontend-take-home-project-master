@@ -13,9 +13,11 @@
 .pageItem {
   padding: 1rem 1.25rem;
   margin: 0 auto;
-  background-color: $white;
+  background-color: $green;
 }
 
 .pageLink {
+  font-weight: 700;
+  text-decoration: none;
   color: $gray-800;
 }

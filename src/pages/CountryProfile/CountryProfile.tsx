@@ -13,8 +13,8 @@ import styles from './CountryProfile.module.scss';
 const CountryProfile = (): JSX.Element => {
   const { countryCode } = useParams<{ countryCode: string }>();
 
-  const country = useSelector((state: AppState) => {
-    return state?.countries?.countries?.filter(
+  const country = useSelector(({ countriesState }: AppState) => {
+    return countriesState?.countries?.filter(
       (item: Country) => item.alpha3Code === countryCode
     );
   });

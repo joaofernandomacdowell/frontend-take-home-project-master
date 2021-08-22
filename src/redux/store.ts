@@ -6,12 +6,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 
 const initialState = {
-  countries: {
+  countriesState: {
     isFetching: false,
     hasError: false,
     countries: [],
   },
-  searchText: {
+  searchState: {
     text: '',
   },
 };

@@ -4,6 +4,6 @@ import countriesReducer from './countriesReducer';
 import searchReducer from './searchReducer';
 
 export default combineReducers({
-  countries: countriesReducer,
-  searchText: searchReducer,
+  countriesState: countriesReducer,
+  searchState: searchReducer,
 });

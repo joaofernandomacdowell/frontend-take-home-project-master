@@ -69,11 +69,14 @@ const Countries = ({
   );
 };
 
-const mapStateToProps = (state: AppState) => ({
-  isFetching: state.countries.isFetching,
-  hasError: state.countries.hasError,
-  countries: state.countries.countries,
-  searchText: state.searchText.text,
+const mapStateToProps = ({
+  countriesState,
+  searchState,
+}: AppState) => ({
+  isFetching: countriesState.isFetching,
+  hasError: countriesState.hasError,
+  countries: countriesState.countries,
+  searchText: searchState.text,
 });
 
 export default connect(mapStateToProps)(memo(Countries));
