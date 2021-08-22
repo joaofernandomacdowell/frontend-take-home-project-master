@@ -17,7 +17,6 @@ const Search = (): JSX.Element => {
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
-    e.preventDefault();
   };
 
   return (

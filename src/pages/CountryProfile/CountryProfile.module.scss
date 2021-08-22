@@ -69,27 +69,32 @@
 
 .contentRight {
   display: flex;
-  flex-basis: 50%;
+  flex-basis: auto;
   flex-direction: column;
+  width: 100%;
 
-  @include breakpoint(mobile) {
-    flex-direction: column;
-    flex-basis: auto;
-    width: 100%;
-
-    .row {
-      padding: 0;
-      flex-direction: column;
-      width: 100%;
-    }
+  @include breakpoint(desktop) {
+    flex-basis: 50%;
+    width: auto;
   }
+}
 
-  .row {
-    padding-left: 0;
+.detailsRow {
+  padding: 0;
+  flex-direction: column;
+  width: 100%;
+
+  @include breakpoint(desktop) {
+    padding: 1.5rem 0 0 0;
+    flex-direction: row;
   }
+}
 
-  @include breakpoint(mobile) {
-    width: 100%;
-    margin-bottom: 1.5rem;
+.detailsCol {
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  @include breakpoint(desktop) {
+    width: 50%;
   }
 }

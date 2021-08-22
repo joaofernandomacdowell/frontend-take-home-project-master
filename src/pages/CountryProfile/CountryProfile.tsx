@@ -52,8 +52,8 @@ const CountryProfile = (): JSX.Element => {
           </div>
           <div className={styles.contentRight}>
             <h2>{name}</h2>
-            <Row>
-              <Col>
+            <Row className={styles.detailsRow}>
+              <Col className={styles.detailsCol}>
                 <Details
                   details={{
                     Population: population.toLocaleString(),
@@ -64,7 +64,7 @@ const CountryProfile = (): JSX.Element => {
                   }}
                 />
               </Col>
-              <Col>
+              <Col className={styles.detailsCol}>
                 <Details
                   details={{
                     Languages: languages
