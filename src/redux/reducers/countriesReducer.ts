@@ -37,7 +37,7 @@ const countriesReducer = (
     case FETCH_COUNTRIES_SUCCESS:
       return {
         ...state,
-        isFetching: true,
+        isFetching: false,
         hasError: false,
         countries: action.payload,
       };

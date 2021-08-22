@@ -11,7 +11,6 @@ interface DetailsProps {
 }
 
 const Details = ({ details }: DetailsProps): JSX.Element => {
-  console.log('details');
   return (
     <>
       {Object.keys(details).map((key) => (
