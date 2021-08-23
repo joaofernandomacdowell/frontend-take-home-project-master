@@ -2,12 +2,20 @@
 
 This project was developed from version 14. \* of Node.js
 
+Check the Makefile!
+
 ## Available scripts
 
 ### Install dependencies and run the application in development mode
 
 ```
-$ yarn
+$ make setup-run
+```
+
+### Only install the application dependencies
+
+```
+$ make setup
 ```
 
 ### Run the application in development mode
@@ -15,22 +23,28 @@ $ yarn
 This will open the application in [http://localhost:3000](http://localhost:3000)
 
 ```
-$ yarn start
+$ make  run
 ```
 
 ### Run unit tests
 
 ```
-$ yarn test
+$ make test
+```
+
+### Run eslint
+
+```
+$ make lint
 ```
 
 ### Build the application for production in the `build` directory
 
 ```
-$ yarn build
+$ make build
 ```
 
-## Run static server in production mode and check performance
+## Run static server in production mode and check the performance
 
 1- Runs the application in [http://localhost:5000](http://localhost:5000) with the optimized build for performance
 

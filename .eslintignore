@@ -1,0 +1,7 @@
+node_modules/
+
+# minified build files
+build/
+
+# test coverage
+coverage/
