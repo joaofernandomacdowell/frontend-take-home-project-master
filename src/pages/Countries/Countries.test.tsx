@@ -1,18 +1,38 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React from 'react';
-import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
-import Countries from './Countries';
+import { cleanup, render } from '@testing-library/react';
+import Countries, { filterFn } from './Countries';
+import countriesMock from '../../redux/actions/mocks/countriesMock';
+
 import store from '../../redux/store';
 
-describe('Countries', () => {
-  test('Should match render snapshot', () => {
-    const app = render(
-      <Provider store={store}>
-        <Countries />
-      </Provider>
-    );
+afterEach(cleanup);
 
-    expect(app).toMatchSnapshot();
+describe('Countries', () => {
+  describe('snapshot', () => {
+    test('Should match render snapshot', () => {
+      const countries = render(
+        <Provider store={store}>
+          <Countries />
+        </Provider>
+      );
+      expect(countries).toMatchSnapshot();
+    });
+  });
+
+  describe('functions', () => {
+    test('filterFn returns correct filtered array', () => {
+      const countries = countriesMock;
+      const text = 'amo';
+
+      const expectedFilter = filterFn(countries, text);
+
+      // match country American Samoa
+      const shouldMatchOnly = [countriesMock[0]];
+
+      expect(expectedFilter).toStrictEqual(shouldMatchOnly);
+    });
   });
 });

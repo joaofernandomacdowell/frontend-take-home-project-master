@@ -15,7 +15,10 @@ interface CountriesProps {
   countries: Country[];
 }
 
-const filterFn = (countries: Country[], text: string) =>
+export const filterFn = (
+  countries: Country[],
+  text: string
+): Country[] =>
   countries.filter((country) => {
     if (
       country.name.toLowerCase().indexOf(text.toLowerCase()) !== -1
