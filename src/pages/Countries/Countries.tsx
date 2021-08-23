@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
-import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
 import Pagination from '../../components/Pagination';
@@ -36,6 +35,8 @@ const Countries = ({
     indexOfLastCountry
   );
 
+  console.log('filteredCountries: ', filteredCountries);
+  console.log('currentCountries: ', currentCountries);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
