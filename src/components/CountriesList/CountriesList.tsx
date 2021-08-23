@@ -3,9 +3,10 @@ import { useSelector } from 'react-redux';
 
 import { Country } from '../../api/types';
 import { AppState } from '../../redux/store';
+
 import CountryCard from '../CountryCard';
 import Loading from '../Loading';
-import NotFound from '../NotFound';
+import ErrorMessage from '../ErrorMessage';
 
 import styles from './CountriesList.module.scss';
 
@@ -23,8 +24,8 @@ const CountriesList = ({
     (state: AppState) => state.searchState
   );
 
-  if (hasError) {
-    return <NotFound searchTerm={text} />;
+  if (hasError || !countries.length) {
+    return <ErrorMessage searchTerm={text} apiError={hasError} />;
   }
 
   if (isFetching && countries.length === 0) {
