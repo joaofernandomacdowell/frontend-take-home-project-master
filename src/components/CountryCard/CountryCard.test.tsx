@@ -7,8 +7,6 @@ import countriesMock from '../../redux/actions/mocks/countriesMock';
 
 import store from '../../redux/store';
 
-afterEach(cleanup);
-
 const countryCard = render(
   <Provider store={store}>
     <CountryCard country={countriesMock[0]} />
