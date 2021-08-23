@@ -25,7 +25,7 @@ const createState =
   (actionsCreators: CountriesActionTypes[]) =>
     actionsCreators.reduce(rootReducer, initialState);
 
-nock.back.fixtures = path.join(__dirname, '../', 'fixtures');
+nock.back.fixtures = path.join(__dirname, '../../', 'fixtures');
 
 describe('Redux - Countries Tests', () => {
   describe('Action Creators', () => {
