@@ -1,4 +1,3 @@
-import { stringify } from 'node:querystring';
 import React from 'react';
 
 import styles from '../../CountryCard.module.scss';
