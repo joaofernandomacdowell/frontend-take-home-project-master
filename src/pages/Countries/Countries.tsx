@@ -1,51 +1,33 @@
 import React, { memo, useEffect, useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './Countries.module.scss';
-
-import { Country } from '../../api/types';
 import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
-import CountryCard from '../../components/CountryCard';
 import Pagination from '../../components/Pagination';
-import Loading from '../../components/Loading';
-import NotFound from '../../components/NotFound';
 import Search from '../../components/Search';
-
-interface CountriesProps {
-  isFetching: boolean;
-  hasError: boolean;
-  countries: Country[];
-}
+import CountriesList from '../../components/CountriesList';
+import { setSearchCountry } from '../../redux/actions/searchActions';
 
 const ITEMS_PER_PAGE = 20;
 
-const Countries = ({
-  isFetching,
-  hasError,
-  countries,
-}: CountriesProps): JSX.Element => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(ITEMS_PER_PAGE);
-  const [text, setText] = useState('');
+const Countries = (): JSX.Element => {
+  const countries = useSelector(
+    (state: AppState) => state.countriesState.countries
+  );
   const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [text, setText] = useState('');
 
   // Execute when input searchText has changed
   useEffect(() => {
+    dispatch(setSearchCountry(text));
     dispatch(fetchCountries(text));
   }, [dispatch, text]);
 
-  if (hasError) {
-    return <NotFound searchTerm={text} />;
-  }
-
-  if (isFetching && countries.length === 0) {
-    return <Loading />;
-  }
-
-  const indexOfLastCountry = currentPage * itemsPerPage;
-  const indexOfFirstCountry = indexOfLastCountry - itemsPerPage;
+  const indexOfLastCountry = currentPage * ITEMS_PER_PAGE;
+  const indexOfFirstCountry = indexOfLastCountry - ITEMS_PER_PAGE;
   const currentCountries = countries.slice(
     indexOfFirstCountry,
     indexOfLastCountry
@@ -59,13 +41,9 @@ const Countries = ({
         text={text}
         onChange={(searchTerm: string) => setText(searchTerm)}
       />
-      <section className={styles.countriesList}>
-        {currentCountries.map((country: Country) => (
-          <CountryCard key={country.alpha3Code} country={country} />
-        ))}
-      </section>
+      <CountriesList countries={currentCountries} />
       <Pagination
-        itemsPerPage={itemsPerPage}
+        itemsPerPage={ITEMS_PER_PAGE}
         totalItems={countries.length}
         paginate={paginate}
       />
@@ -73,10 +51,4 @@ const Countries = ({
   );
 };
 
-const mapStateToProps = ({ countriesState }: AppState) => ({
-  isFetching: countriesState.isFetching,
-  hasError: countriesState.hasError,
-  countries: countriesState.countries,
-});
-
-export default connect(mapStateToProps)(memo(Countries));
+export default memo(Countries);

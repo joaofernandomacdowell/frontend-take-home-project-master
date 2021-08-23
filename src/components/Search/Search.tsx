@@ -7,14 +7,13 @@ import { Container, Row } from '../Grid';
 
 interface SearchProps {
   text: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onChange: any;
+  onChange: (value: React.SetStateAction<string>) => void;
 }
 
 const Search = ({ text, onChange }: SearchProps): JSX.Element => {
-  const [searchText, setSearchText] = useState(text);
-  const inputRef = useRef<HTMLInputElement>();
   const debouncedChange = useDebounce(onChange, 500);
+  const inputRef = useRef<HTMLInputElement>();
+  const [searchText, setSearchText] = useState(text);
 
   useEffect(() => {
     inputRef?.current?.focus();
