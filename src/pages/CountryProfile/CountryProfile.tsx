@@ -56,25 +56,23 @@ const CountryProfile = (): JSX.Element => {
               <Col className={styles.detailsCol}>
                 <Details
                   details={{
-                    Population: population.toLocaleString(),
-                    Region: region,
-                    SubRegion: subregion,
-                    Capital: capital,
-                    'Native name': nativeName,
+                    population: population.toLocaleString(),
+                    capital,
+                    region,
+                    'native name': nativeName,
                   }}
                 />
               </Col>
               <Col className={styles.detailsCol}>
                 <Details
                   details={{
-                    Languages: languages
+                    subregion,
+                    languages: languages
                       .map((language) => language.name)
                       .join(', '),
-                    Currencies: currencies
+                    currencies: currencies
                       .map((currency: Currency) => currency.name)
                       .join(', '),
-                    SubRegion: subregion,
-                    Capital: capital,
                   }}
                 />
               </Col>

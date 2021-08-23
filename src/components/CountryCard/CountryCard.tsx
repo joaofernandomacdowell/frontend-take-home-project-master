@@ -20,9 +20,9 @@ const CountryCard = ({ country }: CountryCardProps): JSX.Element => {
           <h3 className={styles.countryName}>{country.name}</h3>
           <Details
             details={{
-              Population: country.population.toLocaleString(),
-              Region: country.region,
-              Capital: country.capital,
+              population: country.population.toLocaleString(),
+              region: country.region,
+              capital: country.capital,
             }}
           />
         </div>
