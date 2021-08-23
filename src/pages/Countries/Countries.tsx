@@ -43,7 +43,6 @@ const Countries = ({ countries }: CountriesProps): JSX.Element => {
 
   // Execute when input searchText has changed
   useEffect(() => {
-    console.log('useEffect');
     dispatch(setSearchCountry(text.trim()));
     setFiltered(filterFn(countries, text));
     // eslint-disable-next-line react-hooks/exhaustive-deps
