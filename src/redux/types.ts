@@ -1,5 +1,19 @@
 import { Country } from '../api/types';
 
+// States
+export interface CountriesState {
+  isFetching: boolean;
+  hasError: boolean;
+  countries: Country[];
+  meta?: {
+    errorMessage?: string;
+  };
+}
+
+export interface SearchState {
+  text: string;
+}
+
 // Actions
 export const FETCH_COUNTRIES_BEGIN = 'FETCH_COUNTRIES_BEGIN';
 export const FETCH_COUNTRIES_SUCCESS = 'FETCH_COUNTRIES_SUCCESS';

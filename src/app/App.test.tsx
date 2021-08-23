@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import store from '../redux/store';
 
-describe('App Tests', () => {
+describe('App', () => {
   test('Should match render snapshot', () => {
     const app = render(
       <Provider store={store}>

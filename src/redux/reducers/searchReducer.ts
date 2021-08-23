@@ -1,17 +1,17 @@
-import { SetSearchCountryAction, SET_SEARCH_COUNTRY } from '../types';
+import {
+  SearchState,
+  SetSearchCountryAction,
+  SET_SEARCH_COUNTRY,
+} from '../types';
 
-interface State {
-  text: string;
-}
-
-const INITIAL_STATE: State = {
+const INITIAL_STATE: SearchState = {
   text: '',
 };
 
 const searchReducer = (
-  state: State = INITIAL_STATE,
+  state: SearchState = INITIAL_STATE,
   action: SetSearchCountryAction
-): State => {
+): SearchState => {
   switch (action.type) {
     case SET_SEARCH_COUNTRY:
       return { ...state, text: action.payload };

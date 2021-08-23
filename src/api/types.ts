@@ -1,6 +1,5 @@
 export interface Country {
   name: string;
-  alpha2Code: string;
   alpha3Code: string;
   capital: string;
   region: Region;
@@ -25,12 +24,11 @@ export interface Language {
   nativeName: string;
 }
 
-export enum Region {
-  Africa = 'Africa',
-  Americas = 'Americas',
-  Asia = 'Asia',
-  Empty = '',
-  Europe = 'Europe',
-  Oceania = 'Oceania',
-  Polar = 'Polar',
-}
+export type Region =
+  | 'Africa'
+  | 'Americas'
+  | 'Asia'
+  | ''
+  | 'Europe'
+  | 'Oceania'
+  | 'Polar';

@@ -11,18 +11,18 @@ import {
 import { Country } from '../../api/types';
 import fetchCountriesApi from '../../api/fetchCountriesApi';
 
-const fetchCountriesBegin = (): FetchCountriesBeginAction => ({
+export const fetchCountriesBegin = (): FetchCountriesBeginAction => ({
   type: FETCH_COUNTRIES_BEGIN,
 });
 
-const fetchCountriesSuccess = (
+export const fetchCountriesSuccess = (
   countries: Country[]
 ): FetchCountriesSucceededAction => ({
   type: FETCH_COUNTRIES_SUCCESS,
   payload: countries,
 });
 
-const fetchCountriesFailure = (
+export const fetchCountriesFailure = (
   error: Error
 ): FetchCountriesFailedAction => ({
   type: FETCH_COUNTRIES_FAILURE,

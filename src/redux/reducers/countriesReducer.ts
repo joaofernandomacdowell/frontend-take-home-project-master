@@ -1,32 +1,21 @@
 import {
+  CountriesState,
   FETCH_COUNTRIES_BEGIN,
   FETCH_COUNTRIES_SUCCESS,
   FETCH_COUNTRIES_FAILURE,
   CountriesActionTypes,
 } from '../types';
 
-import { Country } from '../../api/types';
-
-// State
-interface State {
-  isFetching: boolean;
-  hasError: boolean;
-  countries: Country[];
-  meta?: {
-    errorMessage?: string;
-  };
-}
-
-const INITIAL_STATE: State = {
+const INITIAL_STATE: CountriesState = {
   isFetching: false,
   hasError: false,
   countries: [],
 };
 
 const countriesReducer = (
-  state: State = INITIAL_STATE,
+  state: CountriesState = INITIAL_STATE,
   action: CountriesActionTypes
-): State => {
+): CountriesState => {
   switch (action.type) {
     case FETCH_COUNTRIES_BEGIN:
       return {
