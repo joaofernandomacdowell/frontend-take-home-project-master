@@ -29,7 +29,6 @@ const fetchCountriesFailure = (
   payload: error.message,
 });
 
-// Side effects
 export const fetchCountries = (countryName?: string) => {
   return async (dispatch: Dispatch): Promise<void> => {
     dispatch(fetchCountriesBegin());

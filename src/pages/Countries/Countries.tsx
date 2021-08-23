@@ -57,7 +57,7 @@ const Countries = ({
     <>
       <Search
         text={text}
-        onChange={(searchTerm) => setText(searchTerm)}
+        onChange={(searchTerm: string) => setText(searchTerm)}
       />
       <section className={styles.countriesList}>
         {currentCountries.map((country: Country) => (
