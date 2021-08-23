@@ -8,7 +8,12 @@ interface FlagProps {
 }
 
 const Flag = ({ imageUrl, alt }: FlagProps): JSX.Element => (
-  <img className={styles.flag} src={imageUrl} alt={alt} />
+  <img
+    className={styles.flag}
+    src={imageUrl}
+    alt={alt}
+    loading="lazy"
+  />
 );
 
 export default Flag;
