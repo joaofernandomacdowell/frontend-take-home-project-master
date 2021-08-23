@@ -2,14 +2,14 @@
 @import '../../styles/variables';
 
 .box {
-  padding: rem-calc(40px) 0;
-
-  @include breakpoint(mobile) {
-    padding: rem-calc(20px) 0;
-  }
+  padding: rem-calc(20px) 0;
 
   @include breakpoint(tablet) {
     padding: rem-calc(20px) 0;
+
+    @include breakpoint(mobile) {
+      padding: rem-calc(40px) 0;
+    }
   }
 }
 

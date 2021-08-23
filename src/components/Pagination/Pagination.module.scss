@@ -1,5 +1,5 @@
-@import '../../styles/variables';
 @import '../../styles/mixins';
+@import '../../styles/variables';
 
 .pagination {
   display: flex;
@@ -8,12 +8,22 @@
   margin: 0 auto;
   overflow: hidden;
   flex-basis: 100%;
+  max-width: 350px;
+
+  @include breakpoint(desktop) {
+    max-width: none;
+  }
 }
 
 .pageItem {
   padding: 1rem 1.25rem;
-  margin: 0 auto;
+  margin: 0 0.5rem;
   background-color: $green;
+  border-radius: 2px;
+
+  @include breakpoint(desktop) {
+    margin: 0 auto;
+  }
 }
 
 .pageLink {
