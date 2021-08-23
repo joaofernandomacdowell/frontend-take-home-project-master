@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchCountries } from '../../redux/actions/countriesActions';
+// import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
 import Pagination from '../../components/Pagination';
@@ -23,7 +23,7 @@ const Countries = (): JSX.Element => {
   // Execute when input searchText has changed
   useEffect(() => {
     dispatch(setSearchCountry(text));
-    dispatch(fetchCountries(text));
+    // dispatch(fetchCountries(text));
   }, [dispatch, text]);
 
   const indexOfLastCountry = currentPage * ITEMS_PER_PAGE;
@@ -51,4 +51,4 @@ const Countries = (): JSX.Element => {
   );
 };
 
-export default memo(Countries);
+export default Countries;
