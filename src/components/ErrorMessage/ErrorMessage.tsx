@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './ErrorMessage.module.scss';
 
 interface ErrorMessageProps {
-  searchTerm: string;
-  apiError: boolean;
+  searchTerm?: string;
+  apiError?: boolean;
 }
 
 const ErrorMessage = ({
@@ -19,10 +19,15 @@ const ErrorMessage = ({
       </span>
     ) : (
       <>
-        <span className={styles.message}>
-          No country was returned with term:{' '}
-        </span>
-        <span className={styles.searchTerm}>{`"${searchTerm}"`}</span>
+        <span className={styles.message}>No country was found</span>
+        {searchTerm && (
+          <>
+            <span className={styles.message}>withTerm: </span>
+            <span
+              className={styles.searchTerm}
+            >{`"${searchTerm}"`}</span>
+          </>
+        )}
       </>
     )}
   </div>
