@@ -25,6 +25,8 @@ const App = (): JSX.Element => {
     if (!countriesState.countries.length) {
       dispatch(fetchCountries());
     }
+
+    // Eslint rule to avoid passing dispatch as a useEffect dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

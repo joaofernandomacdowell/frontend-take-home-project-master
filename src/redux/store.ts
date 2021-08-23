@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -8,7 +7,6 @@ import { loadState, saveState } from '../localStorage/localStorage';
 
 import rootReducer from './reducers';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const persistedState = loadState();
 
 const store = createStore(
@@ -18,7 +16,6 @@ const store = createStore(
 );
 
 store.subscribe(
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   throttle(() => {
     saveState({
       countriesState: store.getState().countriesState,

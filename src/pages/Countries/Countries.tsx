@@ -45,6 +45,8 @@ const Countries = ({ countries }: CountriesProps): JSX.Element => {
   useEffect(() => {
     dispatch(setSearchCountry(text.trim()));
     setFiltered(filterFn(countries, text));
+
+    // Eslint rule to avoid passing dispatch as a useEffect dependency
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text]);
 
