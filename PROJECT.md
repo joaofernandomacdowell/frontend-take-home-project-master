@@ -32,7 +32,7 @@ $ yarn build
 
 ## Run static server in production mode and check performance
 
-1- Runs the aplicação in [http://localhost:5000](http://localhost:5000) with the build optimized for performance
+1- Runs the application in [http://localhost:5000](http://localhost:5000) with the optimized build for performance
 
 ```
 $ npx serve -s build
