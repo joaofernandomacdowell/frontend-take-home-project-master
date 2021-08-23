@@ -23,7 +23,7 @@ $ make setup
 This will open the application in [http://localhost:3000](http://localhost:3000)
 
 ```
-$ make  run
+$ make run
 ```
 
 ### Run unit tests
