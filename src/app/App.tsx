@@ -14,11 +14,17 @@ import { fetchCountries } from '../redux/actions/countriesActions';
 
 import styles from './App.module.scss';
 
+import store from '../redux/store';
+
 const App = (): JSX.Element => {
   const dispatch = useDispatch();
 
+  const { countriesState } = store.getState();
+
   useEffect(() => {
-    dispatch(fetchCountries());
+    if (!countriesState.countries.length) {
+      dispatch(fetchCountries());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
