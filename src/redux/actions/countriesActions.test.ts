@@ -27,9 +27,9 @@ const createState =
 
 nock.back.fixtures = path.join(__dirname, '../../', 'fixtures');
 
-describe('Redux - Countries Tests', () => {
+describe('Redux - Countries Actions', () => {
   describe('Action Creators', () => {
-    it('Should create fetchCountriesBegin', () => {
+    test('Create fetchCountriesBegin', () => {
       const expectedAction: FetchCountriesBeginAction = {
         type: 'FETCH_COUNTRIES_BEGIN',
       };
@@ -38,7 +38,7 @@ describe('Redux - Countries Tests', () => {
       );
     });
 
-    it('Should create fetchCountriesFailure', () => {
+    test('Create fetchCountriesFailure', () => {
       const err = new Error('fetchCountriesFailure test');
       const expectedAction: FetchCountriesFailedAction = {
         type: 'FETCH_COUNTRIES_FAILURE',
@@ -49,7 +49,7 @@ describe('Redux - Countries Tests', () => {
       );
     });
 
-    it('Should create fetchCountriesSuccess', () => {
+    test('Create fetchCountriesSuccess', () => {
       const expectedAction: FetchCountriesSucceededAction = {
         type: 'FETCH_COUNTRIES_SUCCESS',
         payload: countriesMock,
@@ -68,7 +68,7 @@ describe('Redux - Countries Tests', () => {
       jest.restoreAllMocks();
     });
 
-    it('Should fetch and update state', async () => {
+    test('Fetch and update state', async () => {
       nock.back.setMode('record');
       const state: AppState = {
         countriesState: {
