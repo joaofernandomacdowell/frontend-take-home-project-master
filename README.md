@@ -72,3 +72,4 @@ It was not done in the final project solution as this solution removes the need 
 - Write more component tests
 - Full layout and pagination functionality
 - Query string pattern in Home: `http://localhost:3000/search?q=america&page=2`
+- Offline functionality

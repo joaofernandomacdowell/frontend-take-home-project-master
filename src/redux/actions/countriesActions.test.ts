@@ -25,8 +25,6 @@ const createState =
   (actionsCreators: CountriesActionTypes[]) =>
     actionsCreators.reduce(rootReducer, initialState);
 
-nock.back.fixtures = path.join(__dirname, '../../', 'fixtures');
-
 describe('Redux - Countries Actions', () => {
   describe('Action Creators', () => {
     test('Create fetchCountriesBegin', () => {
@@ -80,6 +78,7 @@ describe('Redux - Countries Actions', () => {
       };
 
       const store = mockStore(createState(state));
+      nock.back.fixtures = path.join(__dirname, '../../', 'fixtures');
       const { nockDone } = await nock.back('countries.json');
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
