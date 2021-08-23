@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Redux - Countries Tests Fetch countries Should fetch and update state: countries-state 1`] = `
+exports[`Redux - Countries Actions Fetch countries Fetch and update state: countries-state 1`] = `
 Object {
   "countries": Array [
     Object {
@@ -7119,7 +7119,7 @@ Object {
 }
 `;
 
-exports[`Redux - Countries Tests Fetch countries Should fetch and update state: success-action 1`] = `
+exports[`Redux - Countries Actions Fetch countries Fetch and update state: success-action 1`] = `
 Object {
   "payload": Array [
     Object {
