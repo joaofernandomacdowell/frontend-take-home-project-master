@@ -14,4 +14,8 @@ package-lock.json
 
 .eslintcache
 
+# test coverage
 coverage/
+
+# production
+build/
