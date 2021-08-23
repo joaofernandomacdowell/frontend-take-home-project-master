@@ -1,25 +1,45 @@
-# Firstleaf Take Home Project
+# REST API Countries
 
-## Intro
-Today, we're going to construct a country of the world app!  This assignment allows you to demonstrate your experience with ReactJS and CSS.
+This project was developed from version 14. \* of Node.js
 
-## Assignment
-Given a data API located here: https://restcountries.eu/#api-endpoints-all.  Build an app in ReactJS that meets the requirements below.
+## Available scripts
 
-## Requirements
-- displays a list of the countries using a component CountryCard for display
-- allows you to click the country card, and display the countries' profile ("region, capital city and population (and any other extra info you'd like to add)")
-- allows you to search for a specific country by name
+### Install dependencies and run the application in development mode
 
-Use: https://restcountries.eu/rest/v2/name/{name}  ({name being the country name}) for searching the name
-Use: https://restcountries.eu/rest/v2/all to get all the countries
+```
+$ yarn
+```
 
-## Extra
-- What does code quality look like to you? Show us with your code!  If you have an eye for design, impress us with your CSS powers!
+### Run the application in development mode
 
-## Let's Get Started:
-1. Clone this repository 
-2. If you don't have node installed download it here: https://nodejs.org/en/
-3. Go to the root directory of the repository in your command line and run npm i or npm install
-4. Run npm start, and it should load a basic rendered page in your default browser
-5. You're ready to code!
+This will open the application in [http://localhost:3000](http://localhost:3000)
+
+```
+$ yarn start
+```
+
+### Run unit tests
+
+```
+$ yarn test
+```
+
+### Build the application for production in the `build` directory
+
+```
+$ yarn build
+```
+
+## Run static server in production mode and check performance
+
+1- Runs the application in [http://localhost:5000](http://localhost:5000) with the optimized build for performance
+
+```
+$ npx serve -s build
+```
+
+2- Run lighthouse
+
+```
+$ npx lighthouse --view http://localhost:5000
+```
