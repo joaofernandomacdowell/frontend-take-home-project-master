@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { throttle } from 'lodash';
+import throttle from 'lodash/throttle';
 
 import { loadState, saveState } from '../localStorage/localStorage';
 
@@ -18,6 +18,7 @@ const store = createStore(
 );
 
 store.subscribe(
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   throttle(() => {
     saveState({
       countriesState: store.getState().countriesState,
