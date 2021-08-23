@@ -23,8 +23,6 @@ const CountriesList = ({
     (state: AppState) => state.searchState
   );
 
-  console.log('CountriesList text', text);
-
   if (hasError) {
     return <NotFound searchTerm={text} />;
   }

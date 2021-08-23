@@ -17,6 +17,7 @@
 }
 
 // rem calc
+// See https://gist.github.com/kylewebdev/f36acbfd2e9257d88253
 $rem-base: 16px;
 
 @function strip-unit($num) {
