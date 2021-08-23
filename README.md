@@ -46,7 +46,7 @@ $ make build
 
 ## Run static server in production mode and check the performance
 
-1- Runs the application in [http://localhost:5000](http://localhost:5000) with the optimized build for performance
+1- Runs the application in [http://localhost:5000](http://localhost:5000) **with the optimized build** for performance
 
 ```
 $ npx serve -s build
@@ -57,3 +57,18 @@ $ npx serve -s build
 ```
 $ npx lighthouse --view http://localhost:5000
 ```
+
+## Extras
+
+### LocalStorage Pull Request
+
+This [Pull Request](https://github.com/joaofernandomacdowell/frontend-take-home-project-master/pull/1) applies localStorage on redux store startup, saving the countries array in memory cache to prevent unnecessary requests.
+
+It was not done in the final project solution as this solution removes the need to make a request for the endpoint `https://restcountries.eu/rest/v2/name/{name}`
+
+### Next Steps
+
+- Add CI/CD pipeline
+- Write more component tests
+- Full layout and pagination functionality
+- Query string pattern in Home: `http://localhost:3000/search?q=america&page=2`
