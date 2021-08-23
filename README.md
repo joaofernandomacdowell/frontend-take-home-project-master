@@ -23,7 +23,7 @@ $ make setup
 This will open the application in [http://localhost:3000](http://localhost:3000)
 
 ```
-$ make  run
+$ make run
 ```
 
 ### Run unit tests
@@ -64,12 +64,12 @@ $ npx lighthouse --view http://localhost:5000
 
 This [Pull Request](https://github.com/joaofernandomacdowell/frontend-take-home-project-master/pull/1) applies localStorage on redux store startup, saving the countries array in memory cache to prevent unnecessary requests.
 
-It was not done in the final project solution as this solution removes the need to make a request for the endpoint `https://restcountries.eu/rest/v2/name/{name}`
+It was not done in the final project solution because this it loses the meaning to make a request for the endpoint `https://restcountries.eu/rest/v2/name/{name}`
 
 ### Next Steps
 
 - Add CI/CD pipeline
 - Write more component tests
-- Full layout and pagination functionality
+- Full layout and pagination functionality (toggle active)
 - Query string pattern in Home: `http://localhost:3000/search?q=america&page=2`
-- Offline functionality
+- Service worker
