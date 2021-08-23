@@ -1,20 +1,24 @@
-import React, { memo, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
-// import { fetchCountries } from '../../redux/actions/countriesActions';
+import { fetchCountries } from '../../redux/actions/countriesActions';
 import { AppState } from '../../redux/store';
 
 import Pagination from '../../components/Pagination';
 import Search from '../../components/Search';
 import CountriesList from '../../components/CountriesList';
 import { setSearchCountry } from '../../redux/actions/searchActions';
+import { Country } from '../../api/types';
 
 const ITEMS_PER_PAGE = 20;
 
-const Countries = (): JSX.Element => {
-  const countries = useSelector(
-    (state: AppState) => state.countriesState.countries
-  );
+interface CountriesProps {
+  filteredCountries: Country[];
+}
+
+const Countries = ({
+  filteredCountries,
+}: CountriesProps): JSX.Element => {
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -23,12 +27,11 @@ const Countries = (): JSX.Element => {
   // Execute when input searchText has changed
   useEffect(() => {
     dispatch(setSearchCountry(text));
-    // dispatch(fetchCountries(text));
   }, [dispatch, text]);
 
   const indexOfLastCountry = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstCountry = indexOfLastCountry - ITEMS_PER_PAGE;
-  const currentCountries = countries.slice(
+  const currentCountries = filteredCountries.slice(
     indexOfFirstCountry,
     indexOfLastCountry
   );
@@ -44,11 +47,34 @@ const Countries = (): JSX.Element => {
       <CountriesList countries={currentCountries} />
       <Pagination
         itemsPerPage={ITEMS_PER_PAGE}
-        totalItems={countries.length}
+        totalItems={filteredCountries.length}
         paginate={paginate}
       />
     </>
   );
 };
 
-export default Countries;
+const filterFn = (countries: Country[], text: string) =>
+  countries.filter((country) => {
+    if (
+      country.name.toLowerCase().indexOf(text.toLowerCase()) !== -1
+    ) {
+      return country;
+    }
+
+    return false;
+  });
+
+const mapStateToProps = ({
+  countriesState,
+  searchState,
+}: AppState) => {
+  const { countries } = countriesState;
+  const { text } = searchState;
+
+  return {
+    filteredCountries: filterFn(countries, text),
+  };
+};
+
+export default connect(mapStateToProps)(Countries);
