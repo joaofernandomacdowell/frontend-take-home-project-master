@@ -20,7 +20,7 @@ const store = createStore(
 store.subscribe(
   throttle(() => {
     saveState({
-      countries: store.getState().countriesState.countries,
+      countriesState: store.getState().countriesState,
     });
   }, 1000)
 );
