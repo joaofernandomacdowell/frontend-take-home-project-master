@@ -46,11 +46,14 @@ Object {
           </div>
         </div>
         <div
-          class="loading"
+          class="container"
         >
-          <span>
-            Loading Countries...
+          <span
+            class="message"
+          >
+            No country was found
           </span>
+          
         </div>
         <nav>
           <ul
@@ -102,11 +105,14 @@ Object {
         </div>
       </div>
       <div
-        class="loading"
+        class="container"
       >
-        <span>
-          Loading Countries...
+        <span
+          class="message"
+        >
+          No country was found
         </span>
+        
       </div>
       <nav>
         <ul

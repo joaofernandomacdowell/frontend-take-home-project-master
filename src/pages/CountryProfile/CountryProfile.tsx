@@ -9,6 +9,7 @@ import { Country, Currency } from '../../api/types';
 import { Container, Row, Col } from '../../components/Grid';
 
 import styles from './CountryProfile.module.scss';
+import ErrorMessage from '../../components/ErrorMessage';
 
 const CountryProfile = (): JSX.Element => {
   const { countryCode } = useParams<{ countryCode: string }>();
@@ -20,7 +21,7 @@ const CountryProfile = (): JSX.Element => {
   });
 
   if (!country.length) {
-    return null;
+    return <ErrorMessage />;
   }
 
   const {
